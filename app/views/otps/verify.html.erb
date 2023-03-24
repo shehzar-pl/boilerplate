@@ -1,0 +1,5 @@
+<%= form_tag verify_otp_path ,data: { turbo: false },  method: :post do %>
+    <%= label_tag :otp, "Enter your OTP" %>
+    <%= text_field_tag :otp %>
+    <%= submit_tag "Verify OTP" %>
+  <% end %>

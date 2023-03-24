@@ -1,12 +1,13 @@
 <% if user_signed_in? %>
- <div> Welcome <%= current_user.email %> </div>
- <% if current_user.verified == true %>
+  <% if current_user.verified == true %>
+  <div> Welcome <%= current_user.email %> </div>
+  <h1>HomePage</h1>
   <h1> The user has verified his account through OTP successfully</h1>
-<% else %>
-  <h1>OTP verification still required</h1>
-<% end %>
+  <%= image_tag ('/assets/rails.jpeg') %>
+  <% else %>
+    <h1>OTP verification still required</h1>
+  <% end %>
   <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
   <%= button_to "Sign in", new_user_session_path %>
 <% end %>
-<h1>Homepage!</h1>

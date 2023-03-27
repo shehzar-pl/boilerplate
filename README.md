@@ -57,3 +57,5 @@ You can add new integrated models directly into the admin panel by running
 `rails g active_admin:install ModelName`
 
 Running this you'll get all CRUD operations for this model along with Filteration ability on multiple parameters
+
+> Rename .env.sample to .env and add your keys

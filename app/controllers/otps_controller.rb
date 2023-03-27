@@ -9,7 +9,13 @@ class OtpsController < ApplicationController
     current_user.update(direct_otp: otp, direct_otp_sent_at: Time.now)
 
     UserMailer.send_otp(current_user).deliver_now
-
+    if current_user.phone.present?
+      TWILIO_CLIENT.messages.create(
+        from: "+14406368107",
+        to: current_user.phone,
+        body: "Your OTP is #{otp}"
+      )
+    end
     redirect_to verify_otp_path
   end
 
